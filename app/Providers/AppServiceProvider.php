@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->bind('Inovector\Mixpost\Http\Base\Controllers\Workspace\TemplatesController', 'App\Http\Controllers\TemplatesController');
     }
 }
