@@ -86,7 +86,7 @@ const handleTemplatesClick = () => {
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <a href="https://www.google.com" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50">
+                    <a @click.prevent="() => window.location.href = 'https://www.google.com'" href="#" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50 cursor-pointer">
                         <RectangleGroup class="w-lg h-lg" />
                         <span>{{ $t('template.templates') }}</span>
                     </a>
