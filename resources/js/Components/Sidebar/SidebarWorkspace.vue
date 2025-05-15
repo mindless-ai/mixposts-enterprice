@@ -23,6 +23,10 @@ import TagIcon from "@/Icons/Tag.vue";
 const workspaceCtx = inject('workspaceCtx');
 
 const {isWorkspaceAdminRole, isWorkspaceEditorRole} = useWorkspace();
+
+const handleTemplatesClick = () => {
+    window.location.href = 'https://www.google.com';
+};
 </script>
 
 <template>
@@ -82,8 +86,7 @@ const {isWorkspaceAdminRole, isWorkspaceEditorRole} = useWorkspace();
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
-                              :active="$page.component === 'Workspace/Templates/Index'">
+                    <MenuItem href="#" @click="handleTemplatesClick">
                         <template #icon>
                             <RectangleGroup/>
                         </template>
