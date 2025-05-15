@@ -79,13 +79,6 @@ const {isWorkspaceAdminRole, isWorkspaceEditorRole} = useWorkspace();
                     </template>
                     {{ $t('media.media_library') }}
                 </MenuItem>
-                <MenuItem :url="route('mixpost.media.index', {workspace: workspaceCtx.id})"
-                          :active="$page.component === 'Workspace/Media'">
-                    <template #icon>
-                        <PhotoIcon/>
-                    </template>
-                    {{ $t('media.media_library') }}
-                </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
                     <MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/Templates/Index'">
