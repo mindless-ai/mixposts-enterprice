@@ -41,6 +41,13 @@ const handleClickOutside = (event) => {
   }
 };
 
+// Function to open URL in new tab without Inertia.js interference
+const openInNewTab = (url) => {
+  const newWindow = window.open(url, '_blank');
+  if (newWindow) newWindow.opener = null; // Prevents the new page from being able to access the window.opener property
+  templatesMenuOpen.value = false; // Close dropdown after clicking
+};
+
 // Add and remove event listeners
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
@@ -119,9 +126,9 @@ onUnmounted(() => {
                             &lt;/svg&gt;
                         &lt;/div&gt;
                         &lt;div v-if="templatesMenuOpen" class="absolute left-0 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10"&gt;
-                            &lt;Link :href="route('external.redirect', {target: 'google'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/Link&gt;
-                            &lt;Link :href="route('external.redirect', {target: 'twitter'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/Link&gt;
-                            &lt;Link :href="route('external.redirect', {target: 'facebook'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/Link&gt;
+                            &lt;a href="https://www.google.com" @click.prevent="openInNewTab('https://www.google.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/a&gt;
+                            &lt;a href="https://twitter.com" @click.prevent="openInNewTab('https://twitter.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/a&gt;
+                            &lt;a href="https://www.facebook.com" @click.prevent="openInNewTab('https://www.facebook.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/a&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
