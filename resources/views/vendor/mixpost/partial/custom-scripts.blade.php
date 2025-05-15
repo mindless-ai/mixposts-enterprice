@@ -33,12 +33,10 @@
             const dashboardContainer = inertiaRoot.querySelector('.row-py');
             if (!dashboardContainer) return;
             
-            // Find the page header
-            const pageHeader = dashboardContainer.querySelector('h1') ? 
-                              dashboardContainer.querySelector('h1').closest('div') : 
-                              dashboardContainer.firstElementChild;
-            
-            if (!pageHeader) return;
+            // Find where to insert our custom links
+            // First, look for the accounts section or the 'no accounts' message
+            const accountsSection = dashboardContainer.querySelector('.row-px');
+            if (!accountsSection) return;
             
             // Create our custom links container
             const linksContainer = document.createElement('div');
@@ -72,8 +70,8 @@
                 </div>
             `;
             
-            // Insert after page header
-            pageHeader.insertAdjacentElement('afterend', linksContainer);
+            // Insert our links before the accounts section (or 'no accounts' message)
+            accountsSection.insertAdjacentElement('beforebegin', linksContainer);
             
             // Add click handlers
             document.getElementById('search-analytics-btn').addEventListener('click', function() {
