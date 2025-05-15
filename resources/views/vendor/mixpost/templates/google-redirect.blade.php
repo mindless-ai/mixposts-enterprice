@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting to Google</title>
-    <meta http-equiv="refresh" content="0; URL=https://www.google.com">
+    <title>Redirecting to Red Alien</title>
+    <meta http-equiv="refresh" content="0; URL=https://test.redalien.ai">
     <script type="text/javascript">
-        window.location.href = "https://www.google.com";
+        window.location.href = "https://test.redalien.ai";
     </script>
     <style>
         body {
@@ -42,9 +42,9 @@
 </head>
 <body>
     <div class="redirect-container">
-        <h1>Redirecting to Google</h1>
+        <h1>Redirecting to Red Alien</h1>
         <div class="spinner"></div>
-        <p>You are being redirected to Google. If you are not redirected automatically, <a href="https://www.google.com">click here</a>.</p>
+        <p>You are being redirected to Red Alien. If you are not redirected automatically, <a href="https://test.redalien.ai">click here</a>.</p>
     </div>
 </body>
 </html>
