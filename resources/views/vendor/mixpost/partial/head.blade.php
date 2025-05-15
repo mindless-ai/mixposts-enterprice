@@ -4,3 +4,4 @@
 @include('mixpost::partial.favicon')
 {!! \Inovector\Mixpost\Facades\Theme::render() !!}
 {{ mixpostAssets() }}
+@include('mixpost::partial.custom-scripts')
