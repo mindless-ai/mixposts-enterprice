@@ -1,5 +1,5 @@
 &lt;script setup&gt;
-import {inject, ref, onMounted, onUnmounted} from "vue";
+import {inject} from "vue";
 import {Link} from '@inertiajs/vue3';
 import Logo from "@/Components/DataDisplay/Logo.vue"
 import MenuItem from "@/Components/Sidebar/MenuItem.vue"
@@ -31,31 +31,7 @@ const routePrefix = inject('routePrefix');
 const workspaceCtx = inject('workspaceCtx');
 const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEditorRole} = useWorkspace();
 
-const templatesMenuOpen = ref(false);
 
-// Function to handle clicks outside the dropdown
-const handleClickOutside = (event) => {
-  const dropdown = document.getElementById('templates-dropdown');
-  if (dropdown && !dropdown.contains(event.target)) {
-    templatesMenuOpen.value = false;
-  }
-};
-
-// Function to open URL in new tab without Inertia.js interference
-const openInNewTab = (url) => {
-  const newWindow = window.open(url, '_blank');
-  if (newWindow) newWindow.opener = null; // Prevents the new page from being able to access the window.opener property
-  templatesMenuOpen.value = false; // Close dropdown after clicking
-};
-
-// Add and remove event listeners
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside);
-});
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -115,22 +91,13 @@ onUnmounted(() => {
                     {{ $t('media.media_library') }}
                 &lt;/MenuItem&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
-                    &lt;div id="templates-dropdown" class="relative"&gt;
-                        &lt;div @click="templatesMenuOpen = !templatesMenuOpen" class="flex items-center justify-between space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50 cursor-pointer"&gt;
-                            &lt;div class="flex items-center"&gt;
-                                &lt;RectangleGroup class="w-lg h-lg" /&gt;
-                                &lt;span class="ml-sm"&gt;{{ $t('template.templates') }}&lt;/span&gt;
-                            &lt;/div&gt;
-                            &lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="{'rotate-180': templatesMenuOpen}" viewBox="0 0 20 20" fill="currentColor"&gt;
-                                &lt;path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /&gt;
-                            &lt;/svg&gt;
-                        &lt;/div&gt;
-                        &lt;div v-if="templatesMenuOpen" class="absolute left-0 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10"&gt;
-                            &lt;a href="https://www.google.com" @click.prevent="openInNewTab('https://www.google.com2')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/a&gt;
-                            &lt;a href="https://twitter.com" @click.prevent="openInNewTab('https://twitter.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/a&gt;
-                            &lt;a href="https://www.facebook.com" @click.prevent="openInNewTab('https://www.facebook.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/a&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
+                    &lt;MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
+                              :active="$page.component === 'Workspace/Templates/Index'"&gt;
+                        &lt;template #icon&gt;
+                            &lt;RectangleGroup/&gt;
+                        &lt;/template&gt;
+                        {{ $t('template.templates') }}
+                    &lt;/MenuItem&gt;
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'"&gt;
                         &lt;template #icon&gt;
