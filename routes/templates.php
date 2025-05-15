@@ -3,5 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/workspace/{workspace}/templates', function ($workspace) {
-    return redirect()->away('https://www.google.com');
+    header('Location: https://www.google.com');
+    exit;
 })->name('mixpost.templates.index');
