@@ -86,10 +86,12 @@ const handleTemplatesClick = () => {
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <a @click.prevent="() => window.location.href = 'https://www.google.com'" href="#" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50 cursor-pointer">
-                        <RectangleGroup class="w-lg h-lg" />
-                        <span>{{ $t('template.templates') }}</span>
-                    </a>
+                    <MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})">
+                        <template #icon>
+                            <RectangleGroup/>
+                        </template>
+                        {{ $t('template.templates') }}
+                    </MenuItem>
                     <MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'">
                         <template #icon>
