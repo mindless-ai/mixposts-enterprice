@@ -3,9 +3,13 @@
   buildCommand = "npm install && npm run build && php artisan route:clear && php artisan view:clear && php artisan config:clear"
 
 [deploy]
-  startCommand = "php artisan config:cache && php artisan serve --host=0.0.0.0 --port $PORT"
-  healthcheckPath = "/"
-  healthcheckTimeout = 90
+  startCommand = "php artisan migrate --force && php artisan config:cache && vendor/bin/heroku-php-apache2 public/"
+  healthcheckPath = "/login"
+  healthcheckTimeout = 120
+  restartPolicyType = "on_failure"
+  restartPolicyMaxRetries = 5
 
 [variables]
-  APP_DEBUG = "true"
+  APP_DEBUG = "false"
+  LOG_CHANNEL = "stderr"
+  NIXPACKS_PHP_VERSION = "8.2"
