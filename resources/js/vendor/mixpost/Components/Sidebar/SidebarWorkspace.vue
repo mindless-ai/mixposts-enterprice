@@ -91,13 +91,7 @@ const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEdito
                     {{ $t('media.media_library') }}
                 &lt;/MenuItem&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
-                    &lt;MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
-                              :active="$page.component === 'Workspace/Templates/Index'"&gt;
-                        &lt;template #icon&gt;
-                            &lt;RectangleGroup/&gt;
-                        &lt;/template&gt;
-                        {{ $t('template.templates') }}
-                    &lt;/MenuItem&gt;
+                    <!-- Templates menu item removed -->
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'"&gt;
                         &lt;template #icon&gt;
