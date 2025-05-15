@@ -119,9 +119,9 @@ onUnmounted(() => {
                             &lt;/svg&gt;
                         &lt;/div&gt;
                         &lt;div v-if="templatesMenuOpen" class="absolute left-0 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10"&gt;
-                            &lt;a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/a&gt;
-                            &lt;a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/a&gt;
-                            &lt;a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/a&gt;
+                            &lt;Link :href="route('external.redirect', {target: 'google'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/Link&gt;
+                            &lt;Link :href="route('external.redirect', {target: 'twitter'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/Link&gt;
+                            &lt;Link :href="route('external.redirect', {target: 'facebook'})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/Link&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"

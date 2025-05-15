@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExternalRedirectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->to(config('mixpost.core_path'));
 });
+
+// External redirect route - no CORS issues as it's a server-side redirect
+Route::get('/external/{target}', [ExternalRedirectController::class, 'redirect'])->name('external.redirect');
