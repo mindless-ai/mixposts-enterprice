@@ -89,13 +89,10 @@ const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEdito
                     {{ $t('media.media_library') }}
                 &lt;/MenuItem&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
-                    &lt;MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
-                              :active="$page.component === 'Workspace/Templates/Index'"&gt;
-                        &lt;template #icon&gt;
-                            &lt;RectangleGroup/&gt;
-                        &lt;/template&gt;
-                        {{ $t('template.templates') }}
-                    &lt;/MenuItem&gt;
+                    &lt;a href="https://www.google.com" target="_blank" data-turbo="false" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50"&gt;
+                        &lt;RectangleGroup class="w-lg h-lg" /&gt;
+                        &lt;span class="ml-sm"&gt;{{ $t('template.templates') }}&lt;/span&gt;
+                    &lt;/a&gt;
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'"&gt;
                         &lt;template #icon&gt;
