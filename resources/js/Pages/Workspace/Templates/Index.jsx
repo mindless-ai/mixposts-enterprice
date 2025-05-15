@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import WorkspaceLayout from '@/Layouts/WorkspaceLayout';
+import { Head } from '@inertiajs/react';
 
-export default function Templates() {
+export default function Templates({ auth, workspace }) {
     const [formData, setFormData] = useState({
         input1: '',
         input2: ''
@@ -20,8 +22,14 @@ export default function Templates() {
     };
 
     return (
-        <div className="p-6 max-w-2xl mx-auto">
-            <h1 className="text-2xl font-semibold mb-6">Templates</h1>
+        <WorkspaceLayout
+            auth={auth}
+            workspace={workspace}
+        >
+            <Head title="Templates" />
+            
+            <div className="p-6 max-w-2xl mx-auto">
+                <h1 className="text-2xl font-semibold mb-6">Templates</h1>
             
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -61,6 +69,7 @@ export default function Templates() {
                     Submit
                 </button>
             </form>
-        </div>
+            </div>
+        </WorkspaceLayout>
     );
 }
