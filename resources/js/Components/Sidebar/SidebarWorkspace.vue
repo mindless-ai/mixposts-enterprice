@@ -86,13 +86,7 @@ const handleTemplatesClick = () => {
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
-                              :active="$page.component === 'Workspace/Templates/Index'">
-                        <template #icon>
-                            <RectangleGroup/>
-                        </template>
-                        {{ $t('template.templates') }}
-                    </MenuItem>
+
                     <MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'">
                         <template #icon>
