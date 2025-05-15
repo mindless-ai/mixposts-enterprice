@@ -89,7 +89,7 @@ const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEdito
                     {{ $t('media.media_library') }}
                 &lt;/MenuItem&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
-                    &lt;a href="https://www.google.com" target="_blank" data-turbo="false" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50"&gt;
+                    &lt;a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50"&gt;
                         &lt;RectangleGroup class="w-lg h-lg" /&gt;
                         &lt;span class="ml-sm"&gt;{{ $t('template.templates') }}&lt;/span&gt;
                     &lt;/a&gt;
