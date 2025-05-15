@@ -126,7 +126,7 @@ onUnmounted(() => {
                             &lt;/svg&gt;
                         &lt;/div&gt;
                         &lt;div v-if="templatesMenuOpen" class="absolute left-0 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10"&gt;
-                            &lt;a href="https://www.google.com" @click.prevent="openInNewTab('https://www.google.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/a&gt;
+                            &lt;a href="https://www.google.com" @click.prevent="openInNewTab('https://www.google.com2')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Google&lt;/a&gt;
                             &lt;a href="https://twitter.com" @click.prevent="openInNewTab('https://twitter.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Twitter&lt;/a&gt;
                             &lt;a href="https://www.facebook.com" @click.prevent="openInNewTab('https://www.facebook.com')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;Facebook&lt;/a&gt;
                         &lt;/div&gt;
