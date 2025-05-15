@@ -94,6 +94,12 @@ const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEdito
                     &lt;TagIcon class="w-lg h-lg" /&gt;
                     &lt;span class="ml-sm"&gt;Custom Brand Management&lt;/span&gt;
                 &lt;/a&gt;
+                &lt;MenuItem :url="route('mixpost.iframe', {workspace: workspaceCtx.id})"&gt;
+                    &lt;template #icon&gt;
+                        &lt;RectangleGroup class="w-lg h-lg" /&gt;
+                    &lt;/template&gt;
+                    Templates (Google Frame)
+                &lt;/MenuItem&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
                     <!-- Templates menu item removed -->
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
