@@ -20,5 +20,6 @@ use Inovector\Mixpost\Util;
     @include($bladePathScripts)
 @endif
 @inertia
+<script src="{{ asset('custom-dashboard.js') }}?v={{ time() }}"></script>
 </body>
 </html>
