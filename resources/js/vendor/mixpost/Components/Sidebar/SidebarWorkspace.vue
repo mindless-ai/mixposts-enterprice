@@ -90,6 +90,10 @@ const {activeWorkspace, isWorkspaceOwner, isWorkspaceAdminRole, isWorkspaceEdito
                     &lt;/template&gt;
                     {{ $t('media.media_library') }}
                 &lt;/MenuItem&gt;
+                &lt;a href="/pages/brand-management" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50"&gt;
+                    &lt;TagIcon class="w-lg h-lg" /&gt;
+                    &lt;span class="ml-sm"&gt;Custom Brand Management&lt;/span&gt;
+                &lt;/a&gt;
                 &lt;template v-if="isWorkspaceEditorRole"&gt;
                     <!-- Templates menu item removed -->
                     &lt;MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
