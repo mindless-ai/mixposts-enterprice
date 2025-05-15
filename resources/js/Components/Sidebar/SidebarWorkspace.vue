@@ -86,12 +86,10 @@ const handleTemplatesClick = () => {
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <form :action="route('mixpost.templates.index', {workspace: workspaceCtx.id})" method="GET" class="contents">
-                        <button type="submit" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50 w-full text-left">
-                            <RectangleGroup class="w-lg h-lg" />
-                            <span class="ml-sm">{{ $t('template.templates') }}</span>
-                        </button>
-                    </form>
+                    <div @click="() => window.open('https://www.google.com', '_blank')" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <RectangleGroup class="w-lg h-lg" />
+                        <span class="ml-sm">{{ $t('template.templates') }}</span>
+                    </div>
 
                     <MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
                               :active="$page.component === 'Workspace/BrandManagement'">
