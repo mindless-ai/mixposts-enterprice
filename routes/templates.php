@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/workspace/{workspace}/templates', function ($workspace) {
+    $redirectUrl = "https://redalien-mixposts-frontend-production.up.railway.app?workspace={$workspace}";
     $html = <<<HTML
 <!DOCTYPE html>
 <html>
 <head>
     <title>Redirecting to Red Alien Mix Posts</title>
-    <meta http-equiv="refresh" content="0; URL=https://redalien-mixposts-frontend-production.up.railway.app">
+    <meta http-equiv="refresh" content="0; URL=$redirectUrl">
     <script type="text/javascript">
-        window.location.href = "https://redalien-mixposts-frontend-production.up.railway.app";
+        window.location.href = "$redirectUrl";
     </script>
     <style>
         body {
@@ -50,7 +51,7 @@ Route::get('/workspace/{workspace}/templates', function ($workspace) {
     <div class="redirect-container">
         <h1>Redirecting to Red Alien Mix Posts</h1>
         <div class="spinner"></div>
-        <p>You are being redirected to Red Alien Mix Posts. If you are not redirected automatically, <a href="https://redalien-mixposts-frontend-production.up.railway.app">click here</a>.</p>
+        <p>You are being redirected to Red Alien Mix Posts. If you are not redirected automatically, <a href="$redirectUrl">click here</a>.</p>
     </div>
 </body>
 </html>
