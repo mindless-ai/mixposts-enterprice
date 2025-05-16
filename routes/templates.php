@@ -7,10 +7,10 @@ Route::get('/workspace/{workspace}/templates', function ($workspace) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting to Red Alien</title>
-    <meta http-equiv="refresh" content="0; URL=https://test.redalien.ai">
+    <title>Redirecting to Red Alien Mix Posts</title>
+    <meta http-equiv="refresh" content="0; URL=https://redalien-mixposts-frontend-production.up.railway.app">
     <script type="text/javascript">
-        window.location.href = "https://test.redalien.ai";
+        window.location.href = "https://redalien-mixposts-frontend-production.up.railway.app";
     </script>
     <style>
         body {
@@ -48,9 +48,9 @@ Route::get('/workspace/{workspace}/templates', function ($workspace) {
 </head>
 <body>
     <div class="redirect-container">
-        <h1>Redirecting to Red Alien</h1>
+        <h1>Redirecting to Red Alien Mix Posts</h1>
         <div class="spinner"></div>
-        <p>You are being redirected to Red Alien. If you are not redirected automatically, <a href="https://test.redalien.ai">click here</a>.</p>
+        <p>You are being redirected to Red Alien Mix Posts. If you are not redirected automatically, <a href="https://redalien-mixposts-frontend-production.up.railway.app">click here</a>.</p>
     </div>
 </body>
 </html>
