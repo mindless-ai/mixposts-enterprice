@@ -846,6 +846,7 @@
     },
     "template": {
         "templates": "Plantillas",
+        "content": "Contenido",
         "create_template": "Crear plantilla",
         "do_not_have_templates": "Aún no tienes plantillas",
         "edit_template": "Editar plantilla",

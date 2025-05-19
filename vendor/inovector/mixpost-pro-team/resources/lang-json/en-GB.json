@@ -843,6 +843,7 @@
     },
     "template": {
         "templates": "Templates",
+        "content": "Content",
         "create_template": "Create Template",
         "do_not_have_templates": "You don't have any templates yet",
         "edit_template": "Edit template",

@@ -846,6 +846,7 @@
     },
     "template": {
         "templates": "Modèles",
+        "content": "Contenu",
         "create_template": "Créer un modèle",
         "do_not_have_templates": "Vous n'avez pas encore de modèles",
         "edit_template": "Modifier le modèle",

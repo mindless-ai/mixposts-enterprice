@@ -846,6 +846,7 @@
     },
     "template": {
         "templates": "Шаблоны",
+        "content": "Контент",
         "create_template": "Создать шаблон",
         "do_not_have_templates": "У вас еще нет шаблонов",
         "edit_template": "Редактировать шаблон",

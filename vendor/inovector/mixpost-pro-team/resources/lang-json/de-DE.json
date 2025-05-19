@@ -846,6 +846,7 @@
     },
     "template": {
         "templates": "Vorlagen",
+        "content": "Inhalt",
         "create_template": "Vorlage erstellen",
         "do_not_have_templates": "Du hast noch keine Vorlagen",
         "edit_template": "Vorlage bearbeiten",
