@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/workspace/{workspace}/templates', function ($workspace) {
-    $redirectUrl = "https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace={$workspace}";
+    $redirectUrl = "https://redalien-saas-production.up.railway.app/brand-management?workspace={$workspace}";
     $html = <<<HTML
 <!DOCTYPE html>
 <html>
