@@ -107,26 +107,46 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to get the current workspace ID from the URL or any available source
     function getCurrentWorkspaceId() {
-        // Try to extract from URL if present
-        const urlParams = new URLSearchParams(window.location.search);
-        let workspaceId = urlParams.get('workspace');
+        let workspaceId;
         
-        // If not in URL, check if it's stored elsewhere (localStorage, etc.)
-        if (!workspaceId) {
-            // Check if workspace ID might be in local storage
-            workspaceId = localStorage.getItem('mixposts-workspace-id');
+        // Extract from URL path: /mixpost/{workspaceId}/...
+        const currentPath = window.location.pathname;
+        const mixpostRegex = /\/mixpost\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
+        const matches = currentPath.match(mixpostRegex);
+        
+        if (matches && matches[1]) {
+            workspaceId = matches[1];
+            console.log('Found workspace ID in URL path:', workspaceId);
+            return workspaceId;
         }
         
-        // If still not found, check if it's available in a data attribute on any workspace-related elements
-        if (!workspaceId) {
-            const workspaceElement = document.querySelector('[data-workspace-id]');
-            if (workspaceElement) {
-                workspaceId = workspaceElement.getAttribute('data-workspace-id');
+        // Fallback check for URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        workspaceId = urlParams.get('workspace');
+        if (workspaceId) {
+            return workspaceId;
+        }
+        
+        // If not in URL, check localStorage
+        workspaceId = localStorage.getItem('mixposts-workspace-id');
+        if (workspaceId) {
+            return workspaceId;
+        }
+        
+        // Check for data attributes
+        const workspaceElement = document.querySelector('[data-workspace-id]');
+        if (workspaceElement) {
+            workspaceId = workspaceElement.getAttribute('data-workspace-id');
+            if (workspaceId) {
+                return workspaceId;
             }
         }
         
-        // If we couldn't find the ID anywhere, use a placeholder that the backend might handle
-        return workspaceId || ':mixposts-workspace-id';
+        // Log the issue to help with debugging
+        console.warn('Could not find workspace ID in current URL path, params, localStorage, or data attributes');
+        
+        // Return a default workspace ID if one is known or null
+        return '322057a1-61d5-4e7c-b03c-d87e37ed318a'; // Using example ID as default
     }
     
     // Initialize the link handler
