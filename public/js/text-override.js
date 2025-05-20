@@ -180,6 +180,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the link handler
     handleTemplateLinks();
     
+    // Function to hide specific sidebar items
+    function hideSidebarItems() {
+        // Find and hide Media Library and Content Creation Setup items
+        const allSidebarItems = document.querySelectorAll('.font-medium.tracking-tight');
+        
+        allSidebarItems.forEach(item => {
+            const text = item.textContent.trim();
+            if (text === 'Media Library' || text === 'Content Creation Setup') {
+                // Find the parent anchor element to hide the entire menu item
+                let parent = item;
+                while (parent && parent.tagName !== 'A') {
+                    parent = parent.parentElement;
+                }
+                
+                if (parent) {
+                    // Hide the entire menu item
+                    parent.style.display = 'none';
+                    console.log(`Hidden sidebar item: ${text}`);
+                }
+            }
+        });
+    }
+    
     // Function to inject additional sidebar items
     function injectSidebarItems() {
         // Wait for the sidebar to be fully loaded
@@ -248,8 +271,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000); // Wait 1 second for the sidebar to be fully loaded
     }
     
-    // Run the sidebar item injection
+    // Run the sidebar item injection and hiding
     injectSidebarItems();
+    hideSidebarItems();
     
     // Also observe DOM changes to re-inject items when the sidebar is updated
     const sidebarObserver = new MutationObserver(function(mutations) {
@@ -275,6 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (shouldReinject) {
             injectSidebarItems();
+            hideSidebarItems();
         }
     });
     
