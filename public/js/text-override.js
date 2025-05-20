@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Method 1: Find by specific class in the HTML snippet you provided
         document.querySelectorAll('div.font-medium.tracking-tight').forEach(function(element) {
             if (element.textContent.trim() === 'Templates') {
-                element.textContent = 'Mariano2';
+                element.textContent = 'Content Creation Setup';
                 console.log('Replaced Templates text in div.font-medium');
             }
         });
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Method 2: Find by looking at all divs that contain only the Templates text
         document.querySelectorAll('div').forEach(function(element) {
             if (element.textContent.trim() === 'Templates' && element.children.length === 0) {
-                element.textContent = 'Mariano2';
+                element.textContent = 'Content Creation Setup';
                 console.log('Replaced Templates text in plain div');
             }
         });
@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
         ['span', 'a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'button', 'label'].forEach(function(tagName) {
             document.querySelectorAll(tagName).forEach(function(element) {
                 if (element.textContent.trim() === 'Templates') {
-                    element.textContent = 'Mariano2';
+                    element.textContent = 'Content Creation Setup';
                     console.log('Replaced Templates text in ' + tagName);
                 }
                 
                 // Also look for child text nodes that might contain 'Templates'
                 element.childNodes.forEach(function(node) {
                     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'Templates') {
-                        node.textContent = 'Mariano2';
+                        node.textContent = 'Content Creation Setup';
                         console.log('Replaced Templates text in text node');
                     }
                 });
