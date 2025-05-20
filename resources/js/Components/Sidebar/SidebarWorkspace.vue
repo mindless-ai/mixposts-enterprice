@@ -88,7 +88,7 @@ const handleTemplatesClick = () => {
                 <template v-if="isWorkspaceEditorRole">
                     <a :href="`https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace=${workspaceCtx.id}`" target="_blank" data-turbo="false" class="flex items-center text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50">
                         <RectangleGroup class="w-lg h-lg" />
-                        <span class="ml-sm">{{ $t('template.templates') }}</span>
+                        <span class="ml-sm">Templates 2</span>
                     </a>
 
                     <MenuItem :url="route('mixpost.brand-management', {workspace: workspaceCtx.id})"
