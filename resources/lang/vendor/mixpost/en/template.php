@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'templates' => 'Mariano',
+    'templates' => 'Mariano2',
 ];

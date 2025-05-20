@@ -21,5 +21,6 @@ use Inovector\Mixpost\Util;
 @endif
 @inertia
 <script src="{{ asset('custom-dashboard.js') }}?v={{ time() }}"></script>
+<script src="{{ asset('js/text-override.js') }}?v={{ time() }}"></script>
 </body>
 </html>
