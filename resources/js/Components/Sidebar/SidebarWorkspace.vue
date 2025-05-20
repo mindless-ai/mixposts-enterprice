@@ -86,7 +86,7 @@ const handleTemplatesClick = () => {
                     {{ $t('media.media_library') }}
                 </MenuItem>
                 <template v-if="isWorkspaceEditorRole">
-                    <a href="https://www.google.com" target="_blank" data-turbo="false" class="flex items-center space-x-sm text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50">
+                    <a :href="`https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace=${workspaceCtx.id}`" target="_blank" data-turbo="false" class="flex items-center text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50">
                         <RectangleGroup class="w-lg h-lg" />
                         <span class="ml-sm">{{ $t('template.templates') }}</span>
                     </a>
@@ -128,15 +128,11 @@ const handleTemplatesClick = () => {
                         </template>
                         {{ $t('webhook.webhooks') }}
                     </MenuItem>
-<template v-if="isWorkspaceEditorRole">
-                    <MenuItem :url="route('mixpost.templates.index', {workspace: workspaceCtx.id})"
-                              :active="$page.component === 'Workspace/Templates/Index'">
-                        <template #icon>
-                            <RectangleGroup/>
-                        </template>
-                        ASD
-                    </MenuItem>
-                </template>
+                    <a :href="`https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace=${workspaceCtx.id}`" target="_blank" data-turbo="false" class="flex items-center text-sm text-gray-700 hover:text-primary-600 py-xs px-sm rounded-lg hover:bg-gray-50">
+                        <RectangleGroup class="w-lg h-lg" />
+                        <span class="ml-sm">Templates 2</span>
+                    </a>
+                    
                 </MenuGroupBody>
             </template>
         </div>
