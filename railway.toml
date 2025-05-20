@@ -4,6 +4,7 @@
 
 [deploy]
   startCommand = "php artisan config:cache && php artisan serve --host=0.0.0.0 --port $PORT"
+  postDeploy = "php artisan cache:clear"
 
 [variables]
   APP_DEBUG = "true"
