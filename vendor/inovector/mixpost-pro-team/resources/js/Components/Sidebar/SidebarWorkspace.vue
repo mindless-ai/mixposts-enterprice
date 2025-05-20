@@ -92,7 +92,7 @@ const {isWorkspaceAdminRole, isWorkspaceEditorRole} = useWorkspace();
                         <template #icon>
                             <RectangleGroup/>
                         </template>
-                        Testing
+                        {{ $t('template.content') }}
                     </MenuItem>
                 </template>
             </MenuGroupBody>
