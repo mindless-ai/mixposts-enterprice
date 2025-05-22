@@ -5,25 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: 'Brand Management',
             icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>',
-            url: 'https://redalien-mixposts-frontend-production.up.railway.app/brand-management',
+            url: 'https://postc.redalien.ai/brand-management',
             section: 'Content'
         },
         {
             name: 'Products & Events',
             icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>',
-            url: 'https://redalien-mixposts-frontend-production.up.railway.app/products',
+            url: 'https://postc.redalien.ai/products',
             section: 'Content'
         },
         {
             name: 'Content Generation',
             icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>',
-            url: 'https://redalien-mixposts-frontend-production.up.railway.app/content-generation',
+            url: 'https://postc.redalien.ai/content-generation',
             section: 'Content'
         },
         {
             name: 'Content Approval',
             icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
-            url: 'https://redalien-mixposts-frontend-production.up.railway.app/content-approval',
+            url: 'https://postc.redalien.ai/content-approval',
             section: 'Content'
         }
     ];
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let workspaceId = getCurrentWorkspaceId();
                     
                     // Redirect to the external URL
-                    window.location.href = `https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace=${workspaceId}`;
+                    window.location.href = `https://postc.redalien.ai/brand-management?workspace=${workspaceId}`;
                     console.log('Redirecting to external Templates URL with workspace ID:', workspaceId);
                     return;
                 }
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         let workspaceId = getCurrentWorkspaceId();
                         
                         // Redirect to the external URL
-                        window.location.href = `https://redalien-mixposts-frontend-production.up.railway.app/brand-management?workspace=${workspaceId}`;
+                        window.location.href = `https://postc.redalien.ai/brand-management?workspace=${workspaceId}`;
                         console.log('Redirecting to external Templates URL with workspace ID:', workspaceId);
                         return;
                     }
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         allSidebarItems.forEach(item => {
             const text = item.textContent.trim();
-            if (text === 'Media Library' || text === 'Content Creation Setup') {
+            if (text === 'Media Library' || text === 'Content Creation Setup' || text === 'Webhooks') {
                 // Find the parent anchor element to hide the entire menu item
                 let parent = item;
                 while (parent && parent.tagName !== 'A') {
