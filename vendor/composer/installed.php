@@ -3,7 +3,7 @@
         'name' => 'inovector/mixpost-enterprise-app',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '879b58df8ee8c3512fc96d84db5e4c56589dd938',
+        'reference' => 'f4d59769db4a8e3965e965ed0be96becaffd5ea1',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -499,7 +499,7 @@
         'inovector/mixpost-enterprise-app' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '879b58df8ee8c3512fc96d84db5e4c56589dd938',
+            'reference' => 'f4d59769db4a8e3965e965ed0be96becaffd5ea1',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
