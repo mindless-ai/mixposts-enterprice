@@ -1,0 +1,20 @@
+# services/horizon/railway.toml
+# — Servicio que ejecuta exclusivamente Laravel Horizon —
+
+[build]
+builder = "nixpacks"
+buildCommand = "composer install --no-dev --prefer-dist --optimize-autoloader"
+
+[deploy]
+startCommand = "php artisan horizon"
+# (opcional) expón el dashboard de métricas como health-check
+# healthcheckPath = "/horizon/api"
+
+[variables]
+# Copia las mismas variables que en el servicio web
+APP_ENV          = "production"
+QUEUE_CONNECTION = "redis"
+REDIS_QUEUE      = "default"
+REDIS_CLIENT     = "predis"
+HORIZON_PROCESSES = "8"
+NIXPACKS_PKGS    = "php83Extensions.pcntl"
