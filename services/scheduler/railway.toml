@@ -1,0 +1,12 @@
+[build]
+builder      = "nixpacks"
+buildCommand = "composer install --no-dev --prefer-dist --optimize-autoloader"
+
+[deploy]
+startCommand = "php artisan schedule:work"   # ← ejecuta el Scheduler en loop
+
+[variables]
+APP_ENV          = "production"
+QUEUE_CONNECTION = "redis"
+REDIS_CLIENT     = "predis"
+NIXPACKS_PKGS    = "php83Extensions.pcntl"
