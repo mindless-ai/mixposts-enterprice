@@ -3,8 +3,8 @@
   buildCommand = "npm install && npm run build && php artisan route:clear && php artisan view:clear && php artisan storage:link && php artisan horizon:install"
 
 [deploy]
-  startCommand = "railway start"
-  postDeploy = "php artisan cache:clear"
+  startCommand = "php artisan storage:link && php artisan config:cache && php artisan serve --host=0.0.0.0 --port $PORT"
+  postDeploy = "php artisan cache:clea && php artisan horizon"
 
 [variables]
   APP_DEBUG = "true"
