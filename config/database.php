@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Redis;
 
 return [
 
@@ -122,7 +121,7 @@ return [
 
     'redis' => [
 
-        'client' => env('REDIS_CLIENT', 'predis'),
+        'client' => env('REDIS_CLIENT', 'phpredis'),
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
