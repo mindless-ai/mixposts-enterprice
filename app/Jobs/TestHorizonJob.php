@@ -9,15 +9,13 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
+// app/Jobs/TestHorizonJob.php
 class TestHorizonJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $queue = 'default';          // ← cola donde irá
-    public $connection = 'mixpost-redis';
-
     public function handle(): void
     {
-        Log::info('✅ Horizon processed TestHorizonJob');
+        \Log::info('✅ Horizon processed TestHorizonJob');
     }
 }
