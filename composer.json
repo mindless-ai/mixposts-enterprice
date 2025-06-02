@@ -14,7 +14,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "inovector/mixpost-enterprise": "^4.0",
         "laravel/framework": "^11.0",
-        "laravel/horizon": "^5.32",
+        "laravel/horizon": "5.x-dev",
         "laravel/reverb": "^1.0",
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.0",
@@ -80,6 +80,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

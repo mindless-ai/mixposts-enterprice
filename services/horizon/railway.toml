@@ -7,5 +7,3 @@ buildCommand = "composer install --no-dev --prefer-dist --optimize-autoloader"
 
 [deploy]
 startCommand = 'sh -c "php artisan config:clear && php artisan horizon:purge && exec php artisan horizon --verbose"'
-
-
