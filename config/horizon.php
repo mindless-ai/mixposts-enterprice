@@ -12,10 +12,10 @@ return [
     'path'   => env('HORIZON_PATH', 'horizon'),
 
     /*
-    | Horizon guardará su “meta” en esta conexión Redis. 
-    | Asegúrate de que exista en config/queue.php
+    | Conexión Redis donde Horizon guardará su “meta”.
+    | Debe existir en config/queue.php y database.php.
     */
-    'use'    => env('HORIZON_REDIS_CONNECTION', 'mixpost-redis'),
+    'use'    => 'redis',
 
     'prefix' => env(
         'HORIZON_PREFIX',
@@ -29,9 +29,8 @@ return [
     /*--------------------------------------------------------------*/
 
     'waits' => [
-        // Dispara LongWaitDetected si un job espera > 60 s
-        'mixpost-redis:default'       => 60,
-        'mixpost-redis:publish-post'  => 60,
+        'redis:default'       => 60,
+        'redis:publish-post'  => 60,
     ],
 
     /*--------------------------------------------------------------*/
@@ -39,17 +38,17 @@ return [
     /*--------------------------------------------------------------*/
 
     'trim' => [
-        'recent'        => 60,        // 1 h
+        'recent'        => 60,
         'pending'       => 60,
         'completed'     => 60,
-        'recent_failed' => 10080,     // 7 d
+        'recent_failed' => 10080,
         'failed'        => 10080,
         'monitored'     => 10080,
     ],
 
     'metrics' => [
         'trim_snapshots' => [
-            'job'   => 24,            // 24 h
+            'job'   => 24,   // 24 h
             'queue' => 24,
         ],
     ],
@@ -59,7 +58,7 @@ return [
     /*--------------------------------------------------------------*/
 
     'fast_termination' => false,
-    'memory_limit'     => 128,        // MB
+    'memory_limit'     => 128,   // MB
     'silenced'         => [],
 
     /*--------------------------------------------------------------*/
@@ -68,7 +67,7 @@ return [
 
     'defaults' => [
         'supervisor-default' => [
-            'connection'   => 'mixpost-redis',
+            'connection'   => 'redis',
             'queue'        => ['default'],
             'balance'      => 'auto',
             'minProcesses' => 1,
@@ -90,7 +89,7 @@ return [
 
             // Worker genérico
             'supervisor-default' => [
-                'connection'       => 'mixpost-redis',
+                'connection'       => 'redis',
                 'queue'            => ['default'],
                 'balance'          => 'auto',
                 'minProcesses'     => 1,
@@ -103,13 +102,13 @@ return [
 
             // Worker pesado para publicaciones programadas
             'mixpost-heavy' => [
-                'connection'   => 'mixpost-redis',
+                'connection'   => 'redis',
                 'queue'        => ['publish-post'],
                 'balance'      => 'auto',
                 'minProcesses' => 1,
                 'maxProcesses' => 4,
                 'tries'        => 1,
-                'timeout'      => 3600,   // 1 h por vídeo largo
+                'timeout'      => 3600,  // 1 h
             ],
         ],
 
@@ -117,7 +116,7 @@ return [
         'local' => [
 
             'supervisor-default' => [
-                'connection' => 'mixpost-redis',
+                'connection' => 'redis',
                 'queue'      => ['default'],
                 'balance'    => false,
                 'processes'  => 1,
@@ -126,7 +125,7 @@ return [
             ],
 
             'mixpost-heavy' => [
-                'connection' => 'mixpost-redis',
+                'connection' => 'redis',
                 'queue'      => ['publish-post'],
                 'balance'    => false,
                 'processes'  => 1,
