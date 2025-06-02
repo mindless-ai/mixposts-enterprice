@@ -35,7 +35,7 @@ return [
             'supervisor-1' => [
                 'connection'       => 'mixpost-redis',
                 'queue'            => ['default'],
-                'balance'          => 'auto',
+                'balance'          => false,
                 'processes'        => 3,
                 'tries'            => 3,
                 'timeout'          => 60,
@@ -47,7 +47,7 @@ return [
             'mixpost-heavy' => [
                 'connection' => 'mixpost-redis',
                 'queue'      => ['publish-post'],
-                'balance'    => 'auto',
+                'balance'    => false,
                 'processes'  => 4,
                 'tries'      => 1,
                 'timeout'    => 3600,
