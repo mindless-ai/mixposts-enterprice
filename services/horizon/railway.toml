@@ -6,4 +6,5 @@ builder = "nixpacks"
 buildCommand = "composer install --no-dev --prefer-dist --optimize-autoloader"
 
 [deploy]
-startCommand = "php artisan config:clear && php artisan horizon:purge && exec php artisan horizon --verbose"
+startCommand = "bash -c 'php artisan config:clear && php artisan horizon:purge && exec php artisan horizon --verbose'"
+
