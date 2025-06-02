@@ -184,20 +184,17 @@ return [
             'connection' => 'redis',
             'queue' => ['default'],
             'balance' => 'auto',
-            'processes' => 1,
-            'maxTime' => 0,
-            'maxJobs' => 0,
-            'memory' => 128,
-            'tries' => 1,
+            'autoScalingStrategy' => 'time',
+            'tries' => 3,
             'timeout' => 60,
-            'nice' => 0,
         ],
     ],
 
     'environments' => [
         'production' => [
             'supervisor-1' => [
-                'processes' => 10,
+                'minProcesses' => 1,
+                'maxProcesses' => 10,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
             ],
