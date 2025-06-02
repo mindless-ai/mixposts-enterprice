@@ -181,12 +181,13 @@ return [
 
     'defaults' => [
         'supervisor-1' => [
-            'connection' => 'redis',
-            'queue' => ['default'],
-            'balance' => 'auto',
-            'autoScalingStrategy' => 'time',
-            'tries' => 3,
-            'timeout' => 60,
+            'connection'   => 'redis',
+            'queue'        => ['default'],
+            'balance'      => 'auto',
+            'minProcesses' => 1,     // ← importante para que inicie al menos 1
+            'maxProcesses' => 3,
+            'tries'        => 3,
+            'timeout'      => 60,
         ],
     ],
 
@@ -199,12 +200,12 @@ return [
                 'balanceCooldown' => 3,
             ],
             'mixpost-heavy' => [
-                'connection' => 'mixpost-redis',
-                'queue' => ['publish-post', 'default'],
-                'balance' => 'auto',
-                'processes' => 8,
-                'tries' => 1,
-                'timeout' => 60 * 60,
+                'connection'   => 'redis',
+                'queue'        => ['publish-post'],
+                'balance'      => 'auto',
+                'minProcesses' => 1,
+                'maxProcesses' => 4,
+                'timeout'      => 3600,
             ],
         ],
 
