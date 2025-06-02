@@ -184,7 +184,7 @@ return [
             'connection' => 'redis',
             'queue' => ['default'],
             'balance' => 'auto',
-            'maxProcesses' => 1,
+            'processes' => 1,
             'maxTime' => 0,
             'maxJobs' => 0,
             'memory' => 128,
@@ -197,13 +197,13 @@ return [
     'environments' => [
         'production' => [
             'supervisor-1' => [
-                'maxProcesses' => 10,
+                'processes' => 10,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
             ],
             'mixpost-heavy' => [
                 'connection' => 'mixpost-redis',
-                'queue' => ['publish-post'],
+                'queue' => ['publish-post', 'default'],
                 'balance' => 'auto',
                 'processes' => 8,
                 'tries' => 1,
@@ -213,11 +213,11 @@ return [
 
         'local' => [
             'supervisor-1' => [
-                'maxProcesses' => 3,
+                'processes' => 3,
             ],
             'mixpost-heavy' => [
                 'connection' => 'mixpost-redis',
-                'queue' => ['publish-post'],
+                'queue' => ['publish-post', 'default'],
                 'balance' => 'auto',
                 'processes' => 3,
                 'tries' => 1,
