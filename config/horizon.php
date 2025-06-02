@@ -184,8 +184,7 @@ return [
             'connection'   => 'redis',
             'queue'        => ['default'],
             'balance'      => 'auto',
-            'minProcesses' => 1,     // ← importante para que inicie al menos 1
-            'maxProcesses' => 3,
+            'processes'    => 3,
             'tries'        => 3,
             'timeout'      => 60,
         ],
@@ -194,18 +193,16 @@ return [
     'environments' => [
         'production' => [
             'supervisor-1' => [
-                'minProcesses' => 1,
-                'maxProcesses' => 10,
-                'balanceMaxShift' => 1,
-                'balanceCooldown' => 3,
+                'processes'        => 3,
+                'balanceMaxShift'  => 1,
+                'balanceCooldown'  => 3,
             ],
             'mixpost-heavy' => [
                 'connection'   => 'redis',
                 'queue'        => ['publish-post'],
-                'balance'      => 'auto',
-                'minProcesses' => 1,
-                'maxProcesses' => 4,
-                'timeout'      => 3600,
+                'balance'    => 'auto',
+                'processes'  => 4,
+                'timeout'    => 3600,
             ],
         ],
 
