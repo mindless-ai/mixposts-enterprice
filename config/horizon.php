@@ -33,7 +33,7 @@ return [
 
             // Worker genérico (cola “default”)
             'supervisor-1' => [
-                'connection'       => 'redis',
+                'connection'       => 'mixpost-redis',
                 'queue'            => ['default'],
                 'balance'          => 'auto',
                 'processes'        => 3,
@@ -45,7 +45,7 @@ return [
 
             // Worker pesado para publicaciones programadas
             'mixpost-heavy' => [
-                'connection' => 'redis',
+                'connection' => 'mixpost-redis',
                 'queue'      => ['publish-post'],
                 'balance'    => 'auto',
                 'processes'  => 4,
