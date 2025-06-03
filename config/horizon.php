@@ -43,6 +43,17 @@ return [
                 'balanceCooldown'  => 3,
             ],
 
+            'supervisor-redis' => [
+                'connection'       => 'redis',
+                'queue'            => ['default'],
+                'balance'          => false,
+                'processes'        => 3,
+                'tries'            => 3,
+                'timeout'          => 60,
+                'balanceMaxShift'  => 1,
+                'balanceCooldown'  => 3,
+            ],
+
             // Worker pesado para publicaciones programadas
             'mixpost-heavy' => [
                 'connection' => 'mixpost-redis',
