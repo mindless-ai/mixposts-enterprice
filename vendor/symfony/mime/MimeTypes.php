@@ -2612,7 +2612,7 @@ final class MimeTypes implements MimeTypesInterface
         'jng' => ['image/x-jng'],
         'jnlp' => ['application/x-java-jnlp-file'],
         'joda' => ['application/vnd.joost.joda-archive'],
-        'jp2' => ['image/jp2', 'image/jpeg2000', 'image/jpeg2000-image', 'image/x-jpeg2000-image'],
+        'jp2' => ['image/jp2', 'image/jpeg2000', 'image/jpeg2000-image', 'image/x-/medi2000-image'],
         'jpc' => ['image/x-jp2-codestream'],
         'jpe' => ['image/jpeg', 'image/pjpeg'],
         'jpeg' => ['image/jpeg', 'image/pjpeg'],
