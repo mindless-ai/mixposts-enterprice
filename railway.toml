@@ -4,7 +4,7 @@
 
 [build]
   builder = "nixpacks"
-  buildCommand = "npm install && npm run build && php artisan route:clear && php artisan view:clear && php artisan horizon:install && && PHP_INI_PATH=$(php --ini | grep 'Scan for additional .ini files in' | head -n1 | awk -F': ' '{print $2}') && echo 'upload_max_filesize = ${UPLOAD_MAX_FILESIZE}' > upload_override.ini && echo 'post_max_size = ${POST_MAX_SIZE}' >> upload_override.ini && echo 'memory_limit = 256M' >> upload_override.ini  && mkdir -p '$PHP_INI_PATH' && cp upload_override.ini '$PHP_INI_PATH/99-upload.ini'"
+  buildCommand = "npm install && npm run build && php artisan route:clear && php artisan view:clear && php artisan horizon:install && PHP_INI_PATH=$(php --ini | grep 'Scan for additional .ini files in' | head -n1 | awk -F': ' '{print $2}') && echo 'upload_max_filesize = ${UPLOAD_MAX_FILESIZE}' > upload_override.ini && echo 'post_max_size = ${POST_MAX_SIZE}' >> upload_override.ini && echo 'memory_limit = 256M' >> upload_override.ini  && mkdir -p '$PHP_INI_PATH' && cp upload_override.ini '$PHP_INI_PATH/99-upload.ini'"
 
 [deploy]
   startCommand = "php artisan storage:link && php artisan config:cache && php artisan horizon & php artisan schedule:work & php artisan serve --host=0.0.0.0 --port $PORT"
