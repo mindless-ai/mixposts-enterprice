@@ -1,6 +1,7 @@
 [variables]
   UPLOAD_MAX_FILESIZE = "64M"
   POST_MAX_SIZE       = "70M"
+  APP_DEBUG = "true"
 
 [build]
   builder = "nixpacks"
@@ -9,6 +10,3 @@
 [deploy]
   startCommand = "php artisan storage:link && php artisan config:cache && php artisan horizon & php artisan schedule:work & php artisan serve --host=0.0.0.0 --port $PORT"
   postDeploy = "php artisan cache:clear && php artisan horizon"
-
-[variables]
-  APP_DEBUG = "true"
