@@ -4,9 +4,10 @@
   APP_DEBUG = "true"
 
 [phases.setup]
-  cmds = [
-    'echo "http { client_max_body_size 256M; }" > /etc/nginx/conf.d/upload.conf'
-  ]  
+cmds = [
+  "...",  
+  "echo 'http { client_max_body_size 256M; }' > /etc/nginx/conf.d/upload.conf"
+]
 
 [build]
   builder = "nixpacks"
