@@ -1,0 +1,7 @@
+# nixpacks.toml
+[phases.setup]
+cmds = [
+  "...",  
+  # after all the default setup steps run, drop in your nginx snippet
+  "echo 'http { client_max_body_size 256M; }' > /etc/nginx/conf.d/upload.conf"
+]
