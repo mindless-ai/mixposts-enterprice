@@ -1,7 +1,12 @@
 [variables]
-  UPLOAD_MAX_FILESIZE = "64M"
-  POST_MAX_SIZE = "70M"
+  UPLOAD_MAX_FILESIZE = "256M"
+  POST_MAX_SIZE = "256M"
   APP_DEBUG = "true"
+
+[phases.setup]
+  cmds = [
+    'echo "http { client_max_body_size 256M; }" > /etc/nginx/conf.d/upload.conf'
+  ]  
 
 [build]
   builder = "nixpacks"
