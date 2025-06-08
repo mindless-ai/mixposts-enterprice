@@ -2,7 +2,6 @@
   UPLOAD_MAX_FILESIZE = "256M"
   POST_MAX_SIZE = "256M"
   APP_DEBUG = "true"
-  NIXPACKS_CONFIG_FILE = "nixpacks.toml"
 
 [build]
   builder = "nixpacks"

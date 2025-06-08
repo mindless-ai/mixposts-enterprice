@@ -1,6 +1,6 @@
 # nixpacks.toml
 [phases.setup]
 cmds = [
-  "...",
-  # The client_max_body_size is already defined in nginx.template.conf
+  # dump the template so you see it in the build logs
+  "echo '=== Nginx template start ==='; cat nginx.template.conf; echo '=== Nginx template end ==='"
 ]
